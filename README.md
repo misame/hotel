@@ -32,6 +32,3 @@ La aplicación "Hotel Alura" permite registrar huéspedes y sus reservas. Los us
 - Registrar una nueva reserva para un huésped existente.
 - Consultar las reservas de un huésped existente.
 
-## Información adicional
-
-Para obtener más información sobre el proyecto "Hotel Alura", consulte la documentación en línea o póngase en contacto con el autor del proyecto.
