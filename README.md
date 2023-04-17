@@ -10,8 +10,7 @@
 2. Asegúrese de tener Java 11 y Maven instalados en su computadora.
 3. Abra el proyecto en su IDE preferido.
 4. Configure la conexión de la base de datos en el archivo ".properties".
-5. Compile el proyecto utilizando el comando `mvn clean install` en la terminal.
-6. Ejecute la aplicación utilizando el comando `java -jar target/hotel-alura-1.0.jar`.
+5. Ejecute la aplicación utilizando el comando `java -jar target/hotel-alura-1.0.jar`.
 
 ## Estructura del proyecto
 
