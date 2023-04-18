@@ -160,18 +160,18 @@ public class RegistroHuesped extends JFrame {
         txtNacionalidad.setFont(new Font("Roboto", Font.PLAIN, 16));
         txtNacionalidad.setModel(new DefaultComboBoxModel(new String[]{"afgano-afgana", "aleman-alemana",
             "arabe-arabe", "argentino-argentina", "australiano-australiana", "belga-belga", "boliviano-boliviana",
-            "brasileño-brasileña", "camboyano-camboyana", "canadiense-canadiense", "chileno-chilena", "chino-china",
+            "brasileÃ±o-brasileÃ±a", "camboyano-camboyana", "canadiense-canadiense", "chileno-chilena", "chino-china",
             "colombiano-colombiana", "coreano-coreana", "costarricense-costarricense", "cubano-cubana",
-            "danes-danesa", "ecuatoriano-ecuatoriana", "egipcio-egipcia", "salvadoreño-salvadoreña",
-            "escoces-escocesa", "español-española", "estadounidense-estadounidense", "estonio-estonia",
+            "danes-danesa", "ecuatoriano-ecuatoriana", "egipcio-egipcia", "salvadoreÃ±o-salvadoreÃ±a",
+            "escoces-escocesa", "espaÃ±ol-espaÃ±ola", "estadounidense-estadounidense", "estonio-estonia",
             "etiope-etiope", "filipino-filipina", "finlandes-finlandesa", "frances-francesa", "gales-galesa",
             "griego-griega", "guatemalteco-guatemalteca", "haitiano-haitiana", "holandes-holandesa",
-            "hondureño-hondureña", "indones-indonesa", "ingles-inglesa", "iraqui-iraqui", "irani-irani",
+            "hondureÃ±o-hondureÃ±a", "indones-indonesa", "ingles-inglesa", "iraqui-iraqui", "irani-irani",
             "irlandes-irlandesa", "israeli-israeli", "italiano-italiana", "japones-japonesa", "jordano-jordana",
             "laosiano-laosiana", "leton-letona", "letones-letonesa", "malayo-malaya", "marroqui-marroqui",
             "mexicano-mexicana", "nicaraguense-nicaraguense", "noruego-noruega", "neozelandes-neozelandesa",
-            "panameño-panameña", "paraguayo-paraguaya", "peruano-peruana", "polaco-polaca", "portugues-portuguesa",
-            "puertorriqueño-puertorriqueño", "dominicano-dominicana", "rumano-rumana", "ruso-rusa", "sueco-sueca",
+            "panameÃ±o-panameÃ±a", "paraguayo-paraguaya", "peruano-peruana", "polaco-polaca", "portugues-portuguesa",
+            "puertorriqueÃ±o-puertorriqueÃ±o", "dominicano-dominicana", "rumano-rumana", "ruso-rusa", "sueco-sueca",
             "suizo-suiza", "tailandes-tailandesa", "taiwanes-taiwanesa", "turco-turca", "ucraniano-ucraniana",
             "uruguayo-uruguaya", "venezolano-venezolana", "vietnamita-vietnamita"}));
         contentPane.add(txtNacionalidad);
@@ -289,7 +289,7 @@ public class RegistroHuesped extends JFrame {
                 Long idReserva = cr.ultimoRegistro();
                 String mensaje = "Cliente: " + huesped.getNombre() + " " + huesped.getApellido()
                         + "\nSu numero de reserva es: " + idReserva;
-                int option = JOptionPane.showConfirmDialog(null, mensaje, "Se registró con exito", JOptionPane.DEFAULT_OPTION);
+                int option = JOptionPane.showConfirmDialog(null, mensaje, "Se registrï¿½ con exito", JOptionPane.DEFAULT_OPTION);
                 if (option == JOptionPane.OK_OPTION) {
                     MenuUsuario mu = new MenuUsuario();
                     mu.setVisible(true);

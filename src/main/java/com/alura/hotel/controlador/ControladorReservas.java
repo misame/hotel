@@ -2,6 +2,7 @@ package com.alura.hotel.controlador;
 
 import com.alura.hotel.dao.HuespedDao;
 import com.alura.hotel.dao.ReservaDao;
+import com.alura.hotel.dao.ReservaHuespedDao;
 import com.alura.hotel.modelo.Huesped;
 import com.alura.hotel.modelo.Reserva;
 import com.alura.hotel.utils.JPAUtils;
@@ -50,20 +51,14 @@ public class ControladorReservas {
         return ur;
     }
 
-    public List<Object[]> consultaHuespedesYReservaApellido(String apellido) {
-        EntityManager em = JPAUtils.getEntityManager();
-        String jpql = "SELECT h, r FROM Huesped h JOIN h.reservas r WHERE h.apellido = :apellido";
-        return em.createQuery(jpql, Object[].class)
-                .setParameter("apellido", apellido)
-                .getResultList();
-    }
-
     public List<Object[]> consultaHuespedYReservaId(Long reservaId) {
         EntityManager em = JPAUtils.getEntityManager();
-        String jpql = "SELECT h, r FROM Huesped h JOIN h.reservas r WHERE r.id = :reservaId";
-        return em.createQuery(jpql, Object[].class)
-                .setParameter("reservaId", reservaId)
-                .getResultList();
+        ReservaHuespedDao rhd = new ReservaHuespedDao(em);
+        em.getTransaction().begin();
+        List<Object[]> consultaHuespedYReservaId = rhd.consultaHuespedYReservaId(reservaId);
+        em.getTransaction().commit();
+        em.close();
+        return consultaHuespedYReservaId;
     }
 
     public void ActualizarReservasHuespedes(JTable tbHuespedes, JTable tbReservas) {
@@ -71,9 +66,8 @@ public class ControladorReservas {
         EntityManager em = JPAUtils.getEntityManager();
         HuespedDao hd = new HuespedDao(em);
         ReservaDao rd = new ReservaDao(em);
-        Long idH = 0L;
 
-        // Recuperar la lista de huéspedes de la tabla tbHuespedes
+        // Recuperar la lista de huï¿½spedes de la tabla tbHuespedes
         List<Huesped> huespedes = new ArrayList<>();
         DefaultTableModel modeloHuespedes = (DefaultTableModel) tbHuespedes.getModel();
         for (int i = 0; i < modeloHuespedes.getRowCount(); i++) {
@@ -108,7 +102,7 @@ public class ControladorReservas {
             em.getTransaction().commit();
         }
 
-        // Actualizar cada huésped con sus datos correspondientes
+        // Actualizar cada huï¿½sped con sus datos correspondientes
         for (Huesped huesped : huespedes) {
             em.getTransaction().begin();
             hd.actualizar(huesped);

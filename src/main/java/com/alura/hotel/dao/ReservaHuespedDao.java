@@ -1,6 +1,5 @@
 package com.alura.hotel.dao;
 
-import com.alura.hotel.modelo.ReservaHuesped;
 import java.util.List;
 import javax.persistence.EntityManager;
 
@@ -11,24 +10,6 @@ public class ReservaHuespedDao {
     public ReservaHuespedDao(EntityManager em) {
 
         this.em = em;
-    }
-
-    public void guardar(ReservaHuesped reservaHuesped) {
-        this.em.persist(reservaHuesped);
-    }
-
-    public void update(ReservaHuesped reservaHuesped) {
-        ReservaHuesped existingReservaHuesped = em.find(ReservaHuesped.class, reservaHuesped.getId());
-
-        if (existingReservaHuesped != null) {
-            existingReservaHuesped.setHuesped(reservaHuesped.getHuesped());
-            existingReservaHuesped.setFechaEntrada(reservaHuesped.getFechaEntrada());
-            existingReservaHuesped.setFechaSalida(reservaHuesped.getFechaSalida());
-            existingReservaHuesped.setValor(reservaHuesped.getValor());
-            existingReservaHuesped.setFormaPago(reservaHuesped.getFormaPago());
-
-            this.em.merge(existingReservaHuesped);
-        }
     }
 
     public List<Object[]> consultaHuespedesYReservaApellido(String apellido) {

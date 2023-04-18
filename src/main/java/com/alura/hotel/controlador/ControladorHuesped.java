@@ -2,6 +2,7 @@ package com.alura.hotel.controlador;
 
 import com.alura.hotel.dao.HuespedDao;
 import com.alura.hotel.dao.ReservaDao;
+import com.alura.hotel.dao.ReservaHuespedDao;
 import com.alura.hotel.modelo.Huesped;
 import com.alura.hotel.modelo.Reserva;
 import com.alura.hotel.utils.JPAUtils;
@@ -17,25 +18,6 @@ public class ControladorHuesped {
 
     public ControladorHuesped(Huesped huesped) {
         this.huesped = huesped;
-    }
-
-    public List<Huesped> obtenerHuespedes() {
-        EntityManager em = JPAUtils.getEntityManager();
-        HuespedDao hd = new HuespedDao(em);
-        em.getTransaction().begin();
-        List<Huesped> consultarTodos = hd.consultarTodos();
-        em.getTransaction().commit();
-        em.close();
-        return consultarTodos;
-    }
-
-    public void actualizarHuesped(Huesped huesped) {
-        EntityManager em = JPAUtils.getEntityManager();
-        HuespedDao hd = new HuespedDao(em);
-        em.getTransaction().begin();
-        hd.actualizar(huesped);
-        em.getTransaction().commit();
-        em.close();
     }
 
     public boolean eliminarHuesped(Long id) {
@@ -58,13 +40,14 @@ public class ControladorHuesped {
         }
         
     }
-
-    public void agregarHuesped(Huesped huesped) {
+    
+    public List<Object[]> consultaHuespedesYReservaApellido(String apellido){
         EntityManager em = JPAUtils.getEntityManager();
-        HuespedDao hd = new HuespedDao(em);
+        ReservaHuespedDao rhd = new ReservaHuespedDao(em);
         em.getTransaction().begin();
-        hd.guardar(huesped);
+        List<Object[]> consultaHuespedesYReservaApellido = rhd.consultaHuespedesYReservaApellido(apellido);
         em.getTransaction().commit();
         em.close();
+        return consultaHuespedesYReservaApellido;       
     }
 }

@@ -109,15 +109,15 @@ public class Busqueda extends JFrame {
         tbHuespedes.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
         tbHuespedes.setFont(new Font("Roboto", Font.PLAIN, 14));
         modeloHuesped = (DefaultTableModel) tbHuespedes.getModel();
-        modeloHuesped.addColumn("Número de Huesped");
+        modeloHuesped.addColumn("Nï¿½mero de Huesped");
         modeloHuesped.addColumn("Nombre");
         modeloHuesped.addColumn("Apellido");
         modeloHuesped.addColumn("Fecha de Nacimiento");
         modeloHuesped.addColumn("Nacionalidad");
         modeloHuesped.addColumn("Telefono");
-        modeloHuesped.addColumn("Número de Reserva");
+        modeloHuesped.addColumn("Nï¿½mero de Reserva");
         JScrollPane scroll_tableHuespedes = new JScrollPane(tbHuespedes);
-        panel.addTab("Huéspedes", new ImageIcon(Busqueda.class.getResource("/imagenes/pessoas.png")),
+        panel.addTab("HuÃ©spedes", new ImageIcon(Busqueda.class.getResource("/imagenes/pessoas.png")),
                 scroll_tableHuespedes, null);
         scroll_tableHuespedes.setVisible(true);
 
@@ -187,13 +187,13 @@ public class Busqueda extends JFrame {
             }
 
             @Override
-            public void mouseEntered(MouseEvent e) { // Al usuario pasar el mouse por el boton este cambiara¡ de color
+            public void mouseEntered(MouseEvent e) { // Al usuario pasar el mouse por el boton este cambiaraï¿½ de color
                 btnexit.setBackground(Color.red);
                 labelExit.setForeground(Color.white);
             }
 
             @Override
-            public void mouseExited(MouseEvent e) { // Al usuario quitar el mouse por el boton este volvera¡ al estado
+            public void mouseExited(MouseEvent e) { // Al usuario quitar el mouse por el boton este volveraï¿½ al estado
                 // original
                 btnexit.setBackground(Color.white);
                 labelExit.setForeground(Color.black);
@@ -238,7 +238,7 @@ public class Busqueda extends JFrame {
                     actualizarTablaHuespedes(resultado);
                     actualizarTablaReservas(resultado);
                 } else {
-                    resultado = cr.consultaHuespedesYReservaApellido(valor);
+                    resultado = ch.consultaHuespedesYReservaApellido(valor);
                     actualizarTablaHuespedes(resultado);
                     actualizarTablaReservas(resultado);
                 }
@@ -293,14 +293,14 @@ public class Busqueda extends JFrame {
                 Long idSeleccionadoR = Long.parseLong(tbR.getValueAt(filaSeleccinadoR, 0).toString());
 
                 if (idSeleccionadoH != null && panel.getSelectedIndex() == 1) {
-                    int opcion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea borrar al huesped?\nTambien se borrarán todas sus reservas", "BORRAR HUESPED", JOptionPane.YES_NO_OPTION);
+                    int opcion = JOptionPane.showConfirmDialog(null, "ï¿½Seguro que desea borrar al huesped?\nTambien se borrarï¿½n todas sus reservas", "BORRAR HUESPED", JOptionPane.YES_NO_OPTION);
                     if (opcion == JOptionPane.YES_OPTION) {
                         ControladorHuesped ch = new ControladorHuesped();
                         ch.eliminarHuesped(idSeleccionadoH);
                     }
                 }
                 if (idSeleccionadoR != null && panel.getSelectedIndex() == 0) {
-                    int opcion = JOptionPane.showConfirmDialog(null, "¿Seguro que desea borrar la reserva?", "BORRAR RESERVA", JOptionPane.YES_NO_OPTION);
+                    int opcion = JOptionPane.showConfirmDialog(null, "ï¿½Seguro que desea borrar la reserva?", "BORRAR RESERVA", JOptionPane.YES_NO_OPTION);
                     if (opcion == JOptionPane.YES_OPTION) {
                         ControladorReservas cr = new ControladorReservas();
                         cr.eliminarReserva(idSeleccionadoR);
@@ -333,13 +333,13 @@ public class Busqueda extends JFrame {
             }
 
         };
-        modeloHuespedes.addColumn("Número de Huesped");
+        modeloHuespedes.addColumn("Nï¿½mero de Huesped");
         modeloHuespedes.addColumn("Nombre");
         modeloHuespedes.addColumn("Apellido");
         modeloHuespedes.addColumn("Fecha de Nacimiento");
         modeloHuespedes.addColumn("Nacionalidad");
         modeloHuespedes.addColumn("Telefono");
-        modeloHuespedes.addColumn("Número de Reserva");
+        modeloHuespedes.addColumn("Nï¿½mero de Reserva");
 
         for (Object[] resultado : resultados) {
             Huesped huesped = (Huesped) resultado[0];
@@ -394,7 +394,7 @@ public class Busqueda extends JFrame {
         tbReservas.setModel(modeloReservas);
     }
 
-//Código que permite mover la ventana por la pantalla según la posición de "x" y "y"
+//Cï¿½digo que permite mover la ventana por la pantalla segï¿½n la posiciï¿½n de "x" y "y"
     private void headerMousePressed(java.awt.event.MouseEvent evt) {
         xMouse = evt.getX();
         yMouse = evt.getY();
