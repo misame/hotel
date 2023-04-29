@@ -311,7 +311,7 @@ public class ReservasView extends JFrame {
         txtFormaPago.setBorder(new LineBorder(new Color(255, 255, 255), 1, true));
         txtFormaPago.setFont(new Font("Roboto", Font.PLAIN, 16));
         txtFormaPago.setModel(new DefaultComboBoxModel(
-                new String[]{"Tarjeta de Crédito", "Tarjeta de Débito", "Dinero en efectivo"}));
+                new String[]{"Tarjeta de CrÃ©dito", "Tarjeta de DÃ©bito", "Dinero en efectivo"}));
         panel.add(txtFormaPago);
 
         JPanel btnsiguiente = new JPanel();

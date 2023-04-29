@@ -178,7 +178,7 @@ public class Login extends JFrame {
 		LabelUsuario.setBounds(65, 219, 107, 26);
 		panel.add(LabelUsuario);
 
-		JLabel lblContrasea = new JLabel("CONTRASEÑA");
+		JLabel lblContrasea = new JLabel("CONTRASEÃ‘A");
 		lblContrasea.setForeground(SystemColor.textInactiveText);
 		lblContrasea.setFont(new Font("Roboto Black", Font.PLAIN, 20));
 		lblContrasea.setBounds(65, 316, 140, 26);
@@ -249,14 +249,14 @@ public class Login extends JFrame {
                 Funcionario f = funcionarioDao.login(funcionario);
                 em.getTransaction().commit();
                 em.close();
-                System.out.println("Usuario: "+f.getFuncionario()+" contraseña"+f.getPass());
+                System.out.println("Usuario: "+f.getFuncionario()+" contraseÃ±a"+f.getPass());
 		if (f != null && f.getPass().equals(contrasena)) {
 			MenuUsuario menu = new MenuUsuario();
 			menu.setVisible(true);
                         dispose();
 			
 		} else {
-			JOptionPane.showMessageDialog(this, "Usuario o Contraseña no válidos");
+			JOptionPane.showMessageDialog(this, "Usuario o contraseÃ±a no vÃ¡lidos");
 		}
 	}
 
